@@ -1,0 +1,38 @@
+-----------Nested-------------
+query ReviewQuery($id : ID!,) {
+  author(id: $id) {
+    id
+    name
+    verified
+    reviews {
+      author_id
+      content
+      game_id
+    }
+  }
+}
+
+--------------------------------
+query ReviewQuery($id : ID!) {
+  review(id: $id) {
+    id
+    rating
+    game_id
+    author_id
+    author {
+      id 
+      name
+      verified
+    }
+    game {
+      title
+      id
+      platform
+      reviews {
+        rating
+      }
+    }
+  }
+}
+
+
